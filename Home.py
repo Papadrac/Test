@@ -127,3 +127,6 @@ st.markdown('''
 </div>
 ''', unsafe_allow_html=True)
 
+st.write("You can do it")
+
+
