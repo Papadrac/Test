@@ -106,7 +106,7 @@ st.markdown('''
 }
 </style>
 <div style="width:100%; display:flex; justify-content:center; gap:32px; margin-top:40px;">
-  <span class="circle-border"><a href="/Pages/0_About Us.py" class="rect-link yellow">About Us</a></span>
+  <span class="circle-border"><a href="https://hoqsfe4fjbqxasxdeoone8.streamlit.app/About_Us" class="rect-link yellow">About Us</a></span>
     <span class="circle-border"><a href="/Pages/0_BakitRationality.py" class="rect-link yellow">Bakit Rationality</a></span>
   <span class="circle-border"><a href="/Pages/1_Panuntunan.py" class="rect-link blue">Improve Your Thinking</a></span>
 </div>
@@ -128,5 +128,6 @@ st.markdown('''
 ''', unsafe_allow_html=True)
 
 st.write("You can do it")
+
 
 
