@@ -19,20 +19,36 @@ Mabuhay!
 </h1>
 """, unsafe_allow_html=True)
 
-# --- Set new background image from Imgur ---
-page_bg_img = f"""
+# --- Dynamic background image rotation using JavaScript injected via Streamlit components ---
+import streamlit.components.v1 as components
+
+background_js = """
+<script>
+const images = [
+  'https://imgur.com/FIdMR75.jpg',
+  'https://imgur.com/Lu6vUx3.jpg',
+  'https://imgur.com/NxxGhyX.jpg'
+];
+let idx = 0;
+function setBg() {
+  const appView = window.parent.document.querySelector('[data-testid="stAppViewContainer"]');
+  if (appView) {
+    appView.style.backgroundImage = `url('${images[idx]}')`;
+    appView.style.backgroundSize = 'cover';
+    appView.style.backgroundPosition = 'center';
+  }
+  idx = (idx + 1) % images.length;
+}
+setBg();
+setInterval(setBg, 5000);
+</script>
 <style>
-[data-testid="stAppViewContainer"] {{
-  background-image: url('https://imgur.com/FIdMR75.jpg');
-  background-size: cover;
-  background-position: center;
-}}
-[data-testid="stHeader"] {{
+[data-testid="stHeader"] {
   background: rgba(255,255,255,0.7);
-}}
+}
 </style>
 """
-st.markdown(page_bg_img, unsafe_allow_html=True)
+components.html(background_js, height=0)
 
 
 # --- Custom Title: Bold, Bigger, Centered ---
@@ -128,6 +144,7 @@ st.markdown('''
 ''', unsafe_allow_html=True)
 
 st.write("You can do it")
+
 
 
 
